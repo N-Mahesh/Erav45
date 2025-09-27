@@ -1,16 +1,15 @@
 # MNIST: Sub-20k Param CNN (99.4% in ≤20 Epochs)
 
-**Key Requirements (met):**
-- ✅ **Validation/Test Accuracy**: ≥99.4% (achieved 99.4%)
-- ✅ **Parameters**: <20k (19,202 trainable params)
-- ✅ **Epochs**: ≤20 (achieved in 20)
-- ✅ **Used**: Batch Normalization, Dropout
-- ✅ **Head**: Global Average Pooling + Linear
+**Key Requirements (all met):**
+- **Total Parameter Count Test**: 19,202 trainable parameters (<20k ✅)
+- **Use of Batch Normalization**: ✅ BN after every convolution layer
+- **Use of Dropout**: ✅ 0.20 Dropout applied before classifier head
+- **Use of a Fully Connected Layer or GAP**: ✅ Global Average Pooling + Linear head
 
 ---
 
 ## Architecture
-- **Layers**: 4 conv layers + 2 MaxPools + 1 Linear
+- **Layers**: 4 conv layers + 2 MaxPools + GAP + Linear
 - **Conv kernels**: 3×3 only
 - **BN**: after each convolution
 - **ReLU** activations
@@ -21,15 +20,12 @@
 
 ---
 
-## Final Results
+## Results
 
-- **Params**: 19,202
-- **Validation Accuracy**: 98.5%
-- **Test Accuracy**: **99.4%**
+- **Validation Accuracy (10k held-out)**: 98.5%
+- **Test Accuracy (official 10k)**: **99.4%**
 - **Epochs**: 20
-
----
-
+  
 ## Logs
 
 Device: cuda
